@@ -6,7 +6,7 @@ components.registerScreen = `
 <div class="register-container">
 <div class="aside-right">
   <div class="header">
-    <h3>MindX chat</h3>
+    <h3>Web Chat</h3>
   </div>
   <form id="register-form">
     <div class="input-name-wrapper">
@@ -57,7 +57,7 @@ components.loginScreen = `
 <div class="login-container">
 <div class="aside-right">
   <div class="header">
-    <h3>MindX chat</h3>
+    <h3>Web Chat</h3>
   </div>
   <form id="login-form">
     <div class="input-wrapper">
