@@ -1,8 +1,6 @@
 const model = {}
 model.currentUser = undefined
-/* model.currentUserLogin = (authUser) => {
-  model.currentUser = authUser
-} */
+
 
 model.register = async (data) => {
   try {
