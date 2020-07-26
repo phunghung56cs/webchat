@@ -13,6 +13,6 @@ const init = () => {
   firebase.initializeApp(firebaseConfig);
   console.log(firebase.app().name)
   view
-  .setActiveScreen('registerScreen')
+    .setActiveScreen('loginScreen')
 }
-window.onload = init 
+window.onload = init

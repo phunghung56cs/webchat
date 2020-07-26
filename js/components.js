@@ -1,7 +1,7 @@
-const components = {}
+const components = {};
 components.welcomeScreen = `
 <h1>Welcome to Chat app</h1>
-`
+`;
 components.registerScreen = `
 <div class="register-container">
 <div class="aside-right">
@@ -52,7 +52,7 @@ components.registerScreen = `
   </form>
 </div>
 </div>
-`
+`;
 components.loginScreen = `
 <div class="login-container">
 <div class="aside-right">
@@ -77,11 +77,17 @@ components.loginScreen = `
       <span class="cursor-pointer" id="redirect-to-register">
         Don't have an account? Register
       </span>
-      <button class="btn" type="submit">
+      <button class="btn" type="submit" id="login-to-chat">
         Login
       </button>
     </div>
   </form>
 </div>
 </div>
-`
+`;
+components.chatScreen = (curentUser) =>
+  `
+  <div class="header">
+    <h1>  Welcome ${model.currentUser.displayName} to Web Chat </h1> 
+  </div>
+`;
