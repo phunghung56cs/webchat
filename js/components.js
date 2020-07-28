@@ -85,9 +85,28 @@ components.loginScreen = `
 </div>
 </div>
 `;
-components.chatScreen = (curentUser) =>
-  `
-  <div class="header">
-    <h1>  Welcome ${model.currentUser.displayName} to Web Chat </h1> 
-  </div>
-`;
+components.chatScreen = `
+<div class="chat-container">
+      <div class="header">
+        Web Chat
+      </div>
+      <div class="main">
+        <div class="conversation-detail">
+          <div class="conversation-header">
+            First Conversation
+          </div>
+          <div class="list-messages">
+            
+          </div>
+          <form id="send-message-form">
+            <div class="input-wrapper">
+              <input type="text" name="message" placeholder="Type a message" />
+            </div>
+            <button type="summit">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+`
