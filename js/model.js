@@ -48,10 +48,7 @@ model.login = async (dataLogin) => {
         displayName: response.user.displayName,
         email: response.user.email,
       };
-      view.setActiveScreen('chatScreen')
-
-
-
+      view.setActiveScreen("chatScreen");
     }
   } catch (err) {
     switch (err.code) {
@@ -66,9 +63,8 @@ model.login = async (dataLogin) => {
         break;
     }
   }
-
 };
-model.chat = async () => {
+/* model.chat = async () => {
   try {
     const authState = await firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -78,5 +74,30 @@ model.chat = async () => {
     });
   } catch (err) {
     alert(err.message);
+  }
+} */
+model.chat = async () => {
+  try {
+    const authState = await firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        if (user.emailVerified) {
+          model.currentUser = {
+            displayName: user.displayName,
+            email: user.email
+          }
+          view.setActiveScreen('chatScreen')
+        } else {
+          view.setActiveScreen('loginScreen')
+          alert('Please verify your email')
+        }
+      } else {
+        view.setActiveScreen('loginScreen')
+      }
+    });
+
+  } catch (error) {
+    alert(error.message)
+
   }
 }

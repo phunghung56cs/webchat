@@ -61,7 +61,20 @@ view.setActiveScreen = (screenName) => {
         view.addMessage(botMsg)
         sendMessageForm.message.value = ''
       });
-      break
+      document.getElementById("log-out").addEventListener("click", (e) => {
+        e.preventDefault()
+
+        firebase.auth().signOut().then(() => {
+          confirm('Do you want to log out')
+
+
+          //view.setActiveScreen('loginScreen')
+        }).catch(function (error) {
+          //An error happened
+        })
+      })
+
+      break;
   }
 };
 view.addMessage = (message) => {
@@ -94,4 +107,14 @@ view.addMessage = (message) => {
   }
   document.querySelector('.list-messages')
     .appendChild(messageWrapper)
+}
+
+function confirmFunc() {
+  const confirm = confirm('Do you want to log out')
+  if (confirm === true) {
+    view.setActiveScreen('loginScreen')
+
+  } else {
+    view.setActiveScreen('chatScreen')
+  }
 }

@@ -12,7 +12,9 @@ const init = () => {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   console.log(firebase.app().name)
-  view.setActiveScreen('loginScreen')
+  //view.setActiveScreen('loginScreen')
   model.chat()
+
+
 }
 window.onload = init

@@ -88,6 +88,9 @@ components.loginScreen = `
 components.chatScreen = `
 <div class="chat-container">
       <div class="header">
+      <button type="submit" id="log-out">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </button>
         Web Chat
       </div>
       <div class="main">
