@@ -1,5 +1,6 @@
 const model = {};
 model.currentUser = undefined;
+
 model.register = async (data) => {
   try {
     await firebase
@@ -47,8 +48,10 @@ model.login = async (dataLogin) => {
         displayName: response.user.displayName,
         email: response.user.email,
       };
+      view.setActiveScreen('chatScreen')
 
-      view.setActiveScreen("chatScreen");
+
+
     }
   } catch (err) {
     switch (err.code) {
@@ -63,4 +66,17 @@ model.login = async (dataLogin) => {
         break;
     }
   }
+
 };
+model.chat = async () => {
+  try {
+    const authState = await firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        view.setActiveScreen('chatScreen');
+      }
+    });
+  } catch (err) {
+    alert(err.message);
+  }
+}

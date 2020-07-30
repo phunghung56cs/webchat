@@ -48,12 +48,12 @@
 
 #send-message-form button {
     position: absolute;
-    right: 20px;
+    right: 15px;
     top: 20px;
     background: none;
     border: none;
     color: #037bfe;
-    font-size: 24;
+    font-size: 30px;
 
 }
 
