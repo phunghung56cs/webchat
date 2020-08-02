@@ -53,6 +53,9 @@ view.setActiveScreen = (screenName) => {
           content: sendMessageForm.message.value,
           owner: model.currentUser.email
         }
+        //call controller.addMessage
+        controller.addMessage(message.content)
+
         const botMsg = {
           content: sendMessageForm.message.value,
           owner: 'Bot'
@@ -66,7 +69,6 @@ view.setActiveScreen = (screenName) => {
 
         firebase.auth().signOut().then(() => {
           confirm('Do you want to log out')
-
 
           //view.setActiveScreen('loginScreen')
         }).catch(function (error) {
@@ -107,14 +109,4 @@ view.addMessage = (message) => {
   }
   document.querySelector('.list-messages')
     .appendChild(messageWrapper)
-}
-
-function confirmFunc() {
-  const confirm = confirm('Do you want to log out')
-  if (confirm === true) {
-    view.setActiveScreen('loginScreen')
-
-  } else {
-    view.setActiveScreen('chatScreen')
-  }
 }

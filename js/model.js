@@ -64,18 +64,7 @@ model.login = async (dataLogin) => {
     }
   }
 };
-/* model.chat = async () => {
-  try {
-    const authState = await firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in.
-        view.setActiveScreen('chatScreen');
-      }
-    });
-  } catch (err) {
-    alert(err.message);
-  }
-} */
+
 model.chat = async () => {
   try {
     const authState = await firebase.auth().onAuthStateChanged((user) => {
@@ -101,3 +90,10 @@ model.chat = async () => {
 
   }
 }
+
+model.addMessage = (msg) => {
+  firebase.firestore().collection('conversations')
+    .doc('hd8MN25AWH0GZ33nKVwW').update({
+      messages: firebase.firestore.FieldValue.arrayUnion(msg)
+    });
+};
