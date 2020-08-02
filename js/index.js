@@ -13,12 +13,22 @@ const init = () => {
   firebase.initializeApp(firebaseConfig);
   console.log(firebase.app().name)
   //firestoreFunction()
+  messageFunc()
   model.chat()
 
 }
 window.onload = init
 
 //CRUD Database
+
+const messageFunc = async () => {
+  const docId = 'hd8MN25AWH0GZ33nKVwW'
+  const res = await firebase.firestore().collection('conversations')
+    .doc(docId).get()
+  const msgList = getDataFromDoc(res)
+  console.log(msgList);
+
+}
 firestoreFunction = async () => {
   //get one document
   const documentId = 'uLfKNAsIPieEZs76hxV6'
@@ -30,6 +40,8 @@ firestoreFunction = async () => {
   //console.log(user);
 
   //get many document
+
+
   const response2 = await firebase.firestore()
     .collection('users').where('name', '==', 'Hoai Linh').get()
 
@@ -48,19 +60,6 @@ firestoreFunction = async () => {
   //firebase.firestore().collection('users').add(userToAdd)
 
   /* update document */
-  /* const newMessage = {
-    content: sendMessageForm.message.value,
-    user: model.currentUser.email,
-    createdAt: new Date().toISOString()
-  } */
-  //view.addMessage(newMessage)
-
-  /* documentIdUpdate = 'hd8MN25AWH0GZ33nKVwW'
-  const dataToUpdate = {
-    messages: firebase.firestore.FieldValue.arrayUnion(message)
-  }
-  firebase.firestore().collection('conversations')
-    .doc(documentIdUpdate).update(dataToUpdate) */
 
 
   /* delete document */
