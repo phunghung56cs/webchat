@@ -75,13 +75,3 @@ controller.login = (dataLogin) => {
     model.login(dataLogin)
   }
 }
-
-controller.addMessage = (msgContent) => {
-  const message = {
-    content: msgContent,
-    owner: model.currentUser.email,
-    createdAt: new Date().toISOString()
-  };
-
-  model.addMessage(message);
-};

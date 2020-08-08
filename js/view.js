@@ -51,19 +51,18 @@ view.setActiveScreen = (screenName) => {
         e.preventDefault();
         const message = {
           content: sendMessageForm.message.value,
-          owner: model.currentUser.email
+          owner: model.currentUser.email,
+          createdAt: (new Date()).toISOString()
         }
-        //call controller.addMessage
-        controller.addMessage(message.content)
 
-        const botMsg = {
-          content: sendMessageForm.message.value,
-          owner: 'Bot'
-        }
-        view.addMessage(message)
-        view.addMessage(botMsg)
+
+        model.addMessage(message)
         sendMessageForm.message.value = ''
-      });
+      })
+      model.loadConversations()
+      model.listenConversationsChange()
+
+
       document.getElementById("log-out").addEventListener("click", (e) => {
         e.preventDefault()
 
@@ -109,4 +108,22 @@ view.addMessage = (message) => {
   }
   document.querySelector('.list-messages')
     .appendChild(messageWrapper)
+}
+
+view.showCurrentConversation = () => {
+  //change conversation's name
+  document.getElementsByClassName('conversation-header')[0].innerText = model.currentConversation.title
+
+  //load messages on the screen
+  for (message of model.currentConversation.messages) {
+    view.addMessage(message)
+  }
+  view.scrollToEndElement()
+
+}
+
+view.scrollToEndElement = () => {
+  const element = document.querySelector('.list-messages')
+  element.scrollTop = element.scrollHeight
+
 }

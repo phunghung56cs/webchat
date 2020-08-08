@@ -21,7 +21,6 @@ components.registerScreen = `
         <div class="error" id="last-name-error"></div>
       </div>
     </div>
-    <div class="input-wrapper">
       <input type="text" 
         placeholder="Email" 
         name="email">
@@ -94,6 +93,11 @@ components.chatScreen = `
         Web Chat
       </div>
       <div class="main">
+        <div class="conversation-list">
+          <div class="create-conversation">
+          <button id="create-conversation" class="btn"> New Conversation</button>
+          </div>
+        </div>
         <div class="conversation-detail">
           <div class="conversation-header">
             First Conversation

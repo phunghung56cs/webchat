@@ -10,12 +10,14 @@ const init = () => {
     appId: "1:399784407490:web:1cd4d7ff4ba7dd5b45665b"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig)
+  //const database = firebase.database()
   console.log(firebase.app().name)
   //firestoreFunction()
   messageFunc()
   model.chat()
-
+  //model.statusUser()
+  //console.log(firebase.firestore().collection('conversations').doc('hd8MN25AWH0GZ33nKVwW'))
 }
 window.onload = init
 
@@ -35,9 +37,7 @@ firestoreFunction = async () => {
   const response = await firebase.firestore()
     .collection('users').doc(documentId).get()
   const user = getDataFromDoc(response)
-  //response.data()
-  //user.id = response.id
-  //console.log(user);
+
 
   //get many document
 
@@ -80,5 +80,5 @@ const getDataFromDocs = (docs) => {
      listData.push(element)
    };
    return listData */
-  return listData = docs.map(element => getDataFromDoc(element))
+  return docs.map(element => getDataFromDoc(element))
 }
