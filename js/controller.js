@@ -76,20 +76,7 @@ controller.login = (dataLogin) => {
   }
 }
 
-/* controller.createConversation = (data) => {
-  if (data.conversationTitle === '') {
-    document.getElementById('conversation-name-error').innerText = 'Please input your conversation title'
 
-  } else {
-    document.getElementById('conversation-name-error').innerText = ''
-  }
-  if (data.conversationEmail === '') {
-    document.getElementById('conversation-email-error').innerText = 'Please input your email'
-
-  }else{
-    document.getElementById('conversation-email-error').innerText = ''
-  }
-} */
 controller.createConversation = (conversation) => {
   if (conversation.title.trim() === '') {
     document.getElementById('conversation-name-error').innerText = 'Please input conversation name'
