@@ -117,6 +117,7 @@ model.loadConversations = async () => {
     view.showCurrentConversation()
 
   }
+  view.showConversations()
 
 }
 
@@ -161,6 +162,7 @@ model.listenConversationsChange = () => {
     })
 }
 /* model.statusUser = () => {
+
   // ...
   var userStatusFirestoreRef = firebase.firestore().doc('/status/' + model.currentUser.email);
 
@@ -193,3 +195,7 @@ model.listenConversationsChange = () => {
     });
   })
 } */
+
+model.createConversation = (conversation) => {
+  firebase.firestore().collection(model.collectionName).add(conversation)
+}

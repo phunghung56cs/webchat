@@ -93,11 +93,16 @@ components.chatScreen = `
         Web Chat
       </div>
       <div class="main">
-        <div class="conversation-list">
-          <div class="create-conversation">
-          <button id="create-conversation" class="btn"> New Conversation</button>
-          </div>
-        </div>
+      <div class="aside-left">
+      <div class="create-conversation">
+        <button class="btn">
+          New Conversation
+        </button>
+      </div>
+      <div class="list-conversations">
+        
+      </div>
+    </div>
         <div class="conversation-detail">
           <div class="conversation-header">
             First Conversation
@@ -116,4 +121,30 @@ components.chatScreen = `
         </div>
       </div>
     </div>
+`
+
+components.createConversation = `
+<div class="create-conversation-container">
+    <div class="header">Web Chat</div>
+    <div class="main" style="padding: 50px 20%;">
+      <form id="create-conversation-form">
+        <div>
+          Create a new conversation
+        </div>
+        <div class="input-wrapper">
+          <input type="text" placeholder="Conversation name" name="conversationTitle">
+          <div class="error" id="conversation-name-error"></div>
+
+        </div>
+        <div class="input-wrapper">
+          <input type="text" placeholder="Friend email" name="conversationEmail">
+          <div class="error" id="conversation-email-error"></div>
+
+        </div>
+        <button class="btn" type="submit" id="save">Save</button>
+        <button class="btn btn-light" type="button" id="back-to-chat">Cancel</button>
+
+      </form>
+    </div>
+  </div>
 `
