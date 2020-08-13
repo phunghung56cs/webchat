@@ -103,6 +103,7 @@ view.setActiveScreen = (screenName, fromCreateConversation = false) => {
 
         }
         controller.createConversation(data)
+        view.setActiveScreen('chatScreen', true)
       })
 
 
